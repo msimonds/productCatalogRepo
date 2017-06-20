@@ -1,0 +1,35 @@
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<h1>Product Details</h1>
+<p><b>Breadcrumb</b></p>
+{% if breadcrumbs %}
+	
+    <ul>
+	
+    {% for crumb in breadcrumbs %}
+		{%if forloop.first%}
+			{{crumb}} 
+		{%else%}
+			-> {{crumb}}
+		{%endif%}
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No other product categories available.</p>
+{% endif %}<br />
+<p><b>Product</b> </p>
+<p>
+<img src="http://127.0.0.1:8000/catalog/{{prod.image.url}}" style="width:100% class="img-responsive"><br/>
+Title : {{prod.title}}<br />
+Price : {{prod.price}}<br />
+Description : {{prod.description}}<br />
+</p>
+<p><b>Expanded Hierarchy</b></p>
+{% if hierarchy_list %}
+    {{hierarchy_list|unordered_list}}
+{% else %}
+    <p>No other product categories available.</p>
+{% endif %}
+<p>
+<a class="btn" href="/catalog/">Full Catalog</a>
+</p>

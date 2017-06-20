@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<h1>Add new item</h1>
+
+<form action="{% url 'catalog:process' %}" id="addProductForm" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+  
+   <ul class="list-unstyled">
+   <li>
+    Product Type :  
+		<select name="media" form="addProductForm" method="post">
+		  <option value="F">Film</option>
+		  <option value="B">Book</option>
+		  
+		  <option value="A">Album</option>
+		
+		</select>
+	<li>
+		Title:
+		<input type="text" name="title" required>
+	<li>
+	  Genre: 
+	  <input type="text" name="genre" required>
+	<li>
+	  Sub-Genre:
+	  <input type="text" name="subgenre">
+	<li>
+	  Description:
+	  <input type="text" name="description">
+	   <li>
+	  Price (with 2 decimal places ie 20.00) : 
+	  <input type="text" name="price" required>
+	 
+	  <li>
+	  Upload Photo:
+	    <input type="file" name="pic" accept="image/*">
+		
+	<li>
+	 <input type="submit" name="submit" value="Submit">
+	</ul>
+</form>
