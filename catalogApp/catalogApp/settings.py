@@ -64,7 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.media',
+                #The following line throws an error for Django 1.10+
+                #'django.core.context_processors.media',
             ],
         },
     },
@@ -102,5 +103,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT= os.path.join(BASE_DIR, "catalog/static")
 MEDIA_ROOT=os.path.join(BASE_DIR, 'catalog/media/')
 MEDIA_URL='catalog/media/'
